@@ -50,10 +50,12 @@ public class GUI extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        TitleLabel.setFont(new java.awt.Font("Trajan Pro", 1, 36)); // NOI18N
-        TitleLabel.setText("????????????????????");
+        TitleLabel.setFont(new java.awt.Font("Vademecum", 1, 36)); // NOI18N
+        TitleLabel.setForeground(new java.awt.Color(255, 60, 57));
+        TitleLabel.setText("Questionaire ");
 
         buttonStart.setFont(new java.awt.Font("Stylus BT", 1, 18)); // NOI18N
+        buttonStart.setForeground(new java.awt.Color(15, 82, 186));
         buttonStart.setText("Start");
         buttonStart.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -61,6 +63,8 @@ public class GUI extends javax.swing.JFrame {
             }
         });
 
+        buttonHow.setFont(new java.awt.Font("Stylus BT", 1, 18)); // NOI18N
+        buttonHow.setForeground(new java.awt.Color(0, 168, 107));
         buttonHow.setText("How");
         buttonHow.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -68,6 +72,8 @@ public class GUI extends javax.swing.JFrame {
             }
         });
 
+        buttonInfo.setFont(new java.awt.Font("Stylus BT", 1, 18)); // NOI18N
+        buttonInfo.setForeground(new java.awt.Color(154, 71, 219));
         buttonInfo.setText("Information");
         buttonInfo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -82,29 +88,28 @@ public class GUI extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(97, 97, 97)
-                        .addComponent(TitleLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(86, 86, 86)
+                        .addGap(62, 62, 62)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(buttonStart, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(buttonInfo)
-                                .addComponent(buttonHow, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(buttonStart, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(buttonHow, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(buttonInfo)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(165, 165, 165)
+                        .addComponent(TitleLabel)))
+                .addContainerGap(209, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(36, 36, 36)
+                .addContainerGap()
                 .addComponent(TitleLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(40, 40, 40)
                 .addComponent(buttonStart)
+                .addGap(46, 46, 46)
+                .addComponent(buttonHow)
                 .addGap(39, 39, 39)
-                .addComponent(buttonHow, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(35, 35, 35)
-                .addComponent(buttonInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(130, Short.MAX_VALUE))
+                .addComponent(buttonInfo)
+                .addContainerGap(140, Short.MAX_VALUE))
         );
 
         jMenu1.setText("File");
