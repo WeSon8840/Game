@@ -3,6 +3,19 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.BorderFactory;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.WindowConstants;
+import javax.swing.JOptionPane;
+import java.io.*;
+import java.util.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -27,6 +40,11 @@ public class UnitsBoard extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        Question1 = new javax.swing.JButton();
+        Question2 = new javax.swing.JButton();
+        Question3 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -34,15 +52,54 @@ public class UnitsBoard extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        Question1.setText("1 ");
+        Question1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Question1ActionPerformed(evt);
+            }
+        });
+
+        Question2.setText("2 ");
+
+        Question3.setText("3");
+        Question3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Question3ActionPerformed(evt);
+            }
+        });
+
+        jButton4.setText("4 ");
+
+        jButton1.setText("5 ");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(154, 154, 154)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton1)
+                    .addComponent(jButton4)
+                    .addComponent(Question3)
+                    .addComponent(Question2)
+                    .addComponent(Question1))
+                .addContainerGap(611, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 279, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(67, 67, 67)
+                .addComponent(Question1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(Question2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(Question3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton4)
+                .addGap(18, 18, 18)
+                .addComponent(jButton1)
+                .addContainerGap(357, Short.MAX_VALUE))
         );
 
         jMenu1.setText("File");
@@ -82,6 +139,17 @@ public class UnitsBoard extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
+    private void Question1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Question1ActionPerformed
+
+        String test;
+        test = JOptionPane.showInputDialog("test");
+        
+    }//GEN-LAST:event_Question1ActionPerformed
+
+    private void Question3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Question3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Question3ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -116,8 +184,63 @@ public class UnitsBoard extends javax.swing.JFrame {
             }
         });
     }
+    
+    public static void button(){
+        
+    }
+    
+    public void Read() throws IOException{
+        int height = 6;
+        int width = 6 ;
+        int l,m,n;
+        String Qestio,Answe,Section;
+        String[] Chapter = {"Cells","Genetics","Circulation & Digestion & Respiration","Plants","Diversity of living things", "Evolution" };
+        BufferedReader reader = new BufferedReader(new FileReader("Question.txt"));
+        ArrayList<String> lines = new ArrayList<String>();
+        String s;
+        String S;
+        S="";
+        String[][] Question=new String[height][width];
+        String[][] Answer=new String[height][width];
+        while ((s = reader.readLine()) != null) {
+            S=S+s;
+        }
+        reader.close();
+        
+        for ( int i = 0; i < height; i++) {
+            l=S.indexOf(Chapter[i]);
+            if(i<5)
+            {
+                m=S.indexOf(Chapter[i+1]);
+                Section=S.substring(l,m);
+            }
+            else
+            {
+                Section=S.substring(l,S.length());
+            }
+            for (int  j = 0; j < width; j++) {
+                l=Section.indexOf(String.valueOf(j+1)+". ");
+                m=Section.indexOf("a. ",1);
+                Qestio=Section.substring(l+3, m);
+                Question[i][j]=Qestio;
+                Section=Section.substring(m,Section.length());
+                
+                n=Section.indexOf("()",1);
+                Answe=Section.substring(2,n);
+                Answer[i][j]=Answe;
+            }
+        }
+        System.out.println(Question[2][3]);
+    }
+    
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Question1;
+    private javax.swing.JButton Question2;
+    private javax.swing.JButton Question3;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton4;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
