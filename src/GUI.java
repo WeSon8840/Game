@@ -171,8 +171,8 @@ public class GUI extends javax.swing.JFrame {
      * @param args the command line arguments
      */
 //    public class Board {
-//    public static final int WINDOW_WIDTH = 1000;
-//    public static final int WINDOW_HEIGHT = 800;
+    public static final int WINDOW_WIDTH = 1000;
+    public static final int WINDOW_HEIGHT = 800;
     public static void main(String args[]) throws IOException{ 
 //        System.out.println("Working Directory = " +  System.getProperty("user.dir"));
 //        String[] Chapter = {"Cells","Genetics","Circulation & Digestion & Respiration","Plants","Diversity of living things", "Evolution" };
